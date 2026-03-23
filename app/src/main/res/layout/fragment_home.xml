@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/md_16dp"
+    tools:context=".ui.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/imagem_logo"
+            android:src="@drawable/img_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcvUserPhoto"
+            android:layout_width="@dimen/xl_64dp"
+            android:layout_height="@dimen/xl_64dp"
+            android:layout_marginTop="@dimen/md_16dp"
+            app:cardCornerRadius="@dimen/xm_32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+            app:strokeColor="@color/zinc_700"
+            app:strokeWidth="@dimen/xxs_2dp">
+
+            <ImageView
+                android:id="@+id/ivUserPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/imagem_foto_do_usuario"
+                android:src="@drawable/img_this_person_does_not_exist" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/md_16dp"
+            android:text="@string/ola_usuario"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mcvUserPhoto"
+            app:layout_constraintStart_toEndOf="@+id/mcvUserPhoto"
+            app:layout_constraintTop_toTopOf="@+id/mcvUserPhoto" />
+
+        <LinearLayout
+            android:id="@+id/llNewPlannerActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mcvUserPhoto">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNewPlannerActivityName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sm_8dp"
+                app:startIconDrawable="@drawable/ic_tag">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietNewPlannerActivityName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/qual_a_atividade"
+                    android:inputType="textCapSentences" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNewPlannerActivityDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sm_8dp"
+                app:startIconDrawable="@drawable/ic_calendar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietNewPlannerActivityDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/escolha_a_data" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNewPlannerActivityTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sm_8dp"
+                app:startIconDrawable="@drawable/ic_clock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietNewPlannerActivityTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/escolha_o_horario" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@id/btnSaveNewPlannerActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/md_16dp"
+            android:text="@string/salvar_atividade"
+            android:textColor="@color/lime_950"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llNewPlannerActivity" />
+
+        <TextView
+            android:id="@+id/tvPlannerActivitiesTitle"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/atividades"
+            android:layout_marginTop="@dimen/md_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSaveNewPlannerActivity" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPlannerActivities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/md_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlannerActivitiesTitle"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_planner_activity"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
