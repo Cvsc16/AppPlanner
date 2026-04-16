@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.dev.caiovinicius.planner.R
 import com.dev.caiovinicius.planner.databinding.FragmentInitialLoadingBinding
+import com.dev.caiovinicius.planner.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -19,6 +21,7 @@ class InitialLoadingFragment : Fragment() {
 
     private val navController by lazy { findNavController() }
 
+    private val userRegistrationViewModel by viewModels<UserRegistrationViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +38,13 @@ class InitialLoadingFragment : Fragment() {
             // Todo: lógica da tela de laoding inicial (ir para cadastro de usuário ou home)
             lifecycleScope.launch {
                 delay(1_500)
-                navController.navigate(R.id.action_initialLoadingFragment_to_userRegistrationFragment)
+
+                navController.navigate(
+                    if (userRegistrationViewModel.getIsUserRegistered())
+                        R.id.action_initialLoadingFragment_to_homeFragment
+                    else
+                        R.id.action_initialLoadingFragment_to_userRegistrationFragment
+                )
             }
         }
     }
