@@ -1,14 +1,14 @@
 package com.dev.caiovinicius.planner.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.dev.caiovinicius.planner.R
 import com.dev.caiovinicius.planner.data.utils.imageBase64ToBitmap
 import com.dev.caiovinicius.planner.databinding.FragmentHomeBinding
@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    val userRegistrationViewModel: UserRegistrationViewModel by viewModels()
+    val userRegistrationViewModel: UserRegistrationViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +60,7 @@ class HomeFragment : Fragment() {
                 userRegistrationViewModel.isTokenValid.distinctUntilChanged { old, new ->
                     old == new
                 }.collect { isTokenValid ->
+                    Log.d("CheckIsTokenValid", "setupObservers: isTokenValid = $isTokenValid")
                     if (isTokenValid == false) showNewTokenSnackBar()
                 }
             }

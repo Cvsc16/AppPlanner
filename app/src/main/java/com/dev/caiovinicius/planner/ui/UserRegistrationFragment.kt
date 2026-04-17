@@ -10,6 +10,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -27,7 +28,7 @@ class UserRegistrationFragment : Fragment() {
 
     private val navController by lazy { findNavController() }
 
-    private val userRegistrationViewModel: UserRegistrationViewModel by viewModels<UserRegistrationViewModel>()
+    private val userRegistrationViewModel: UserRegistrationViewModel by activityViewModels<UserRegistrationViewModel>()
 
     private val pickMedia = registerForActivityResult(PickVisualMedia()) { uri ->
         if (uri != null) {
@@ -42,7 +43,8 @@ class UserRegistrationFragment : Fragment() {
             Toast.makeText(
                 requireContext(),
                 "Oops... Nenhuma foto selecionada",
-                Toast.LENGTH_SHORT).show()
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -81,24 +83,25 @@ class UserRegistrationFragment : Fragment() {
             }
 
             btnSaveUser.setOnClickListener {
-                userRegistrationViewModel.saveProfile()
-                navController.navigate(R.id.action_userRegistrationFragment_to_homeFragment)
+                userRegistrationViewModel.saveProfile(onCompleted = {
+                    navController.navigate(R.id.action_userRegistrationFragment_to_homeFragment)
+                })
             }
         }
     }
 
-    private fun setupObservers() {
-        lifecycleScope.launch {
-            userRegistrationViewModel.isProfileValid.collect { isProfileValid ->
-                binding.btnSaveUser.isEnabled = isProfileValid
-            }
+private fun setupObservers() {
+    lifecycleScope.launch {
+        userRegistrationViewModel.isProfileValid.collect { isProfileValid ->
+            binding.btnSaveUser.isEnabled = isProfileValid
         }
     }
+}
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+override fun onDestroyView() {
+    super.onDestroyView()
+    _binding = null
+}
 
 
 }
