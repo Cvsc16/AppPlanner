@@ -1,4 +1,4 @@
-package com.dev.caiovinicius.planner.data.utils
+package com.dev.caiovinicius.planner.domain.utils
 
 import android.content.Context
 import android.graphics.Bitmap

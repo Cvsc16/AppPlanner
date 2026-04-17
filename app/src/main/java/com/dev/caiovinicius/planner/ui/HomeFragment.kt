@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.dev.caiovinicius.planner.R
-import com.dev.caiovinicius.planner.data.utils.imageBase64ToBitmap
+import com.dev.caiovinicius.planner.domain.utils.imageBase64ToBitmap
 import com.dev.caiovinicius.planner.databinding.FragmentHomeBinding
 import com.dev.caiovinicius.planner.ui.viewmodel.UserRegistrationViewModel
 import com.google.android.material.snackbar.Snackbar
