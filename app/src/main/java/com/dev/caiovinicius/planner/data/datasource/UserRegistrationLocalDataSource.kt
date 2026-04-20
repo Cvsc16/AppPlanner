@@ -1,6 +1,6 @@
 package com.dev.caiovinicius.planner.data.datasource
 
-import com.dev.caiovinicius.planner.data.model.Profile
+import com.dev.caiovinicius.planner.domain.model.Profile
 import kotlinx.coroutines.flow.Flow
 
 interface UserRegistrationLocalDataSource {

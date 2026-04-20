@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.dev.caiovinicius.planner.data.datasource.AuthenticationLocalDataSource
 import com.dev.caiovinicius.planner.data.datasource.UserRegistrationLocalDataSource
 import com.dev.caiovinicius.planner.core.di.MainServiceLocator
-import com.dev.caiovinicius.planner.data.model.Profile
+import com.dev.caiovinicius.planner.domain.model.Profile
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

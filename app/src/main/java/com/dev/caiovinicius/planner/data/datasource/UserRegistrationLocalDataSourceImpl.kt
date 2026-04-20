@@ -5,8 +5,8 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
-import com.dev.caiovinicius.planner.data.model.Profile
-import com.dev.caiovinicius.planner.data.model.ProfileSerializer
+import com.dev.caiovinicius.planner.domain.model.Profile
+import com.dev.caiovinicius.planner.domain.model.ProfileSerializer
 import kotlinx.coroutines.flow.Flow
 
 private const val PROFILE_FILE_NAME = "profile.db"

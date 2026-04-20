@@ -1,4 +1,4 @@
-package com.dev.caiovinicius.planner.data.model
+package com.dev.caiovinicius.planner.domain.model
 
 import kotlinx.serialization.Serializable
 
