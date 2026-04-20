@@ -40,7 +40,8 @@ object MainServiceLocator {
             application.applicationContext,
             PlannerActivityDatabase::class.java,
             PLANNER_ACTIVITY_DATABASE_NAME
-        ).build()
+        ).fallbackToDestructiveMigration()
+            .build()
 
         database.plannerActivityDao()
     }

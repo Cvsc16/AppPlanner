@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/zinc_800"
     android:padding="@dimen/md_16dp"
-    tools:context=".ui.UpdatePlannerActivityDialogFragment">
+    tools:context=".presentation.ui.UpdatePlannerActivityDialogFragment">
 
     <TextView
         android:id="@+id/tvUpdatePlannerActivityTitle"

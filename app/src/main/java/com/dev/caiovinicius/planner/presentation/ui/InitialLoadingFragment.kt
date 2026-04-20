@@ -1,4 +1,4 @@
-package com.dev.caiovinicius.planner.ui
+package com.dev.caiovinicius.planner.presentation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.dev.caiovinicius.planner.R
 import com.dev.caiovinicius.planner.databinding.FragmentInitialLoadingBinding
-import com.dev.caiovinicius.planner.ui.viewmodel.UserRegistrationViewModel
+import com.dev.caiovinicius.planner.presentation.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

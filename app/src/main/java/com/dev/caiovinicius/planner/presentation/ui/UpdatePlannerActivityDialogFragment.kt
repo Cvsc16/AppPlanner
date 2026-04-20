@@ -1,4 +1,4 @@
-package com.dev.caiovinicius.planner.ui
+package com.dev.caiovinicius.planner.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

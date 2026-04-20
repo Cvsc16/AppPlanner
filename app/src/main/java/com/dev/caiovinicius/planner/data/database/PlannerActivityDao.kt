@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface PlannerActivityDao {
 
-    @Query("SELECT * FROM planneractivityentity ORDER BY is_completed AND datetime")
+    @Query("SELECT * FROM planneractivityentity ORDER BY is_completed, datetime DESC")
     fun getAll(): Flow<List<PlannerActivityEntity>>
 
     @Insert

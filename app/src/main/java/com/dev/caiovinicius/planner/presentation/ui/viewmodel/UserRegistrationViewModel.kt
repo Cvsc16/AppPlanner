@@ -1,4 +1,4 @@
-package com.dev.caiovinicius.planner.ui.viewmodel
+package com.dev.caiovinicius.planner.presentation.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

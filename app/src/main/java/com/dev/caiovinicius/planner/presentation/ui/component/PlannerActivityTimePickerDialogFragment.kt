@@ -1,4 +1,4 @@
-package com.dev.caiovinicius.planner.ui.component
+package com.dev.caiovinicius.planner.presentation.ui.component
 
 import android.app.Dialog
 import android.app.TimePickerDialog
