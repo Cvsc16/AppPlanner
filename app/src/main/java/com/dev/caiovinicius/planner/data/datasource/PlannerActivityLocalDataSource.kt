@@ -6,12 +6,14 @@ import kotlinx.coroutines.flow.Flow
 interface PlannerActivityLocalDataSource {
     val plannerActivities: Flow<List<PlannerActivity>>
 
-    fun getByUuid(uuid: String): PlannerActivity
+    suspend fun insert(plannerActivity: PlannerActivity)
 
-    fun updateIsCompletedByUuid(uuid: String, isCompleted: Boolean)
+    suspend fun getByUuid(uuid: String): PlannerActivity
 
-    fun update(plannerActivity: PlannerActivity)
+    suspend fun updateIsCompletedByUuid(uuid: String, isCompleted: Boolean)
 
-    fun deleteByUuid(uuid: String)
+    suspend fun update(plannerActivity: PlannerActivity)
+
+    suspend fun deleteByUuid(uuid: String)
 
 }

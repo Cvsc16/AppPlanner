@@ -11,6 +11,7 @@ import com.dev.caiovinicius.planner.data.datasource.PlannerActivityLocalDataSour
 import com.dev.caiovinicius.planner.data.datasource.PlannerActivityLocalDataSourceImpl
 import com.dev.caiovinicius.planner.data.datasource.UserRegistrationLocalDataSource
 import com.dev.caiovinicius.planner.data.datasource.UserRegistrationLocalDataSourceImpl
+import kotlinx.coroutines.Dispatchers
 
 object MainServiceLocator {
 
@@ -18,6 +19,13 @@ object MainServiceLocator {
     private val application: Application
         get() = _application!!
 
+    val ioDispatcher by lazy {
+        Dispatchers.IO
+    }
+
+    val mainDispatcher by lazy {
+        Dispatchers.Main
+    }
 
     val userRegistrationLocalDataSource: UserRegistrationLocalDataSource by lazy {
         UserRegistrationLocalDataSourceImpl(application.applicationContext)
@@ -27,7 +35,7 @@ object MainServiceLocator {
         AuthenticationLocalDataSourceImpl(application.applicationContext)
     }
 
-    val plannerActivityDao : PlannerActivityDao by lazy {
+    val plannerActivityDao: PlannerActivityDao by lazy {
         val database = Room.databaseBuilder(
             application.applicationContext,
             PlannerActivityDatabase::class.java,
@@ -37,7 +45,7 @@ object MainServiceLocator {
         database.plannerActivityDao()
     }
 
-    val plannerActivityLocalDataSource : PlannerActivityLocalDataSource by lazy {
+    val plannerActivityLocalDataSource: PlannerActivityLocalDataSource by lazy {
         PlannerActivityLocalDataSourceImpl(plannerActivityDao)
     }
 

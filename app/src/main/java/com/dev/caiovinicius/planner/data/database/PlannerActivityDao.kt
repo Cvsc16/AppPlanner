@@ -1,6 +1,7 @@
 package com.dev.caiovinicius.planner.data.database
 
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
@@ -10,6 +11,9 @@ interface PlannerActivityDao {
 
     @Query("SELECT * FROM planneractivityentity ORDER BY is_completed AND datetime")
     fun getAll(): Flow<List<PlannerActivityEntity>>
+
+    @Insert
+    fun insert(plannerActivityEntity: PlannerActivityEntity)
 
     @Query("SELECT * FROM planneractivityentity WHERE uuid = :uuid")
     fun getByUuid(uuid: String): PlannerActivityEntity
